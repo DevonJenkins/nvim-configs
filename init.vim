@@ -55,7 +55,6 @@ set signcolumn=yes
 set colorcolumn=80
 set exrc 
 set relativenumber 
-set guicursor
 
 
 """""""""""""""""""""""""""""""""""""""""""""
