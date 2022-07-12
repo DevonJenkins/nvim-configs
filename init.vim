@@ -67,6 +67,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <Return>o o<Esc>
 nnoremap <Return>O O<Esc>
+nnoremap <silent> <Esc> :noh<return><Esc>
 "set fillchars+=vert:\ 
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -102,9 +103,10 @@ set si
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F2> :NERDTreeToggle<CR>
 
-set pastetoggle=<f5> 
+"set pastetoggle=<f5> 
+map <F5> :set pastetoggle<CR>
 
-map <F1> :AutoSaveToggle
+map <F3> :AutoSaveToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         startify 
