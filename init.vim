@@ -24,6 +24,7 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug '907th/vim-auto-save'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()            " required
 
