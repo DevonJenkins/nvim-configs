@@ -27,6 +27,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'alvan/vim-closetag'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'tpope/vim-surround'
+Plug 'dracula/vim'
+Plug 'kshenoy/vim-signature'
 
 call plug#end()            " required
 
