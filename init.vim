@@ -36,7 +36,7 @@ call plug#end()            " required
 set termguicolors
 let g:gruvbox_contrast_dark = 'medium'
 set background=dark  
-autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * ++nested colorscheme dracula
 autocmd BufNewFile *.html 0r ~/.vim/skeletons/skeletons/page.html
 autocmd FileType json syntax match Comment +\/\/.\+$+
 syntax on
