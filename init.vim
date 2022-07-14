@@ -1,6 +1,5 @@
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"                    vimrc 
+"                   init.vim 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -26,9 +25,12 @@ Plug 'junegunn/fzf.vim'
 Plug '907th/vim-auto-save'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
+Plug 'alvan/vim-closetag'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()            " required
 
+set termguicolors
 let g:gruvbox_contrast_dark = 'medium'
 set background=dark  
 autocmd vimenter * ++nested colorscheme gruvbox
@@ -41,7 +43,6 @@ set softtabstop=0
 set shiftwidth=4 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
 set ruler 
-set nowrap
 set smartindent 
 set noerrorbells 
 set novisualbell
@@ -54,9 +55,10 @@ set noswapfile
 set nobackup 
 set signcolumn=yes 
 set colorcolumn=80
+set textwidth=80
 set exrc 
 set relativenumber 
-
+set wrap
 
 """""""""""""""""""""""""""""""""""""""""""""
 "                    remappings
@@ -69,6 +71,19 @@ nnoremap <Return>o o<Esc>
 nnoremap <Return>O O<Esc>
 nnoremap <silent> <Esc> :noh<return><Esc>
 "set fillchars+=vert:\ 
+
+
+""""""""""""""""""""""""""""""""""""""""""
+"                Mappings to move lines like in VS code
+""""""""""""""""""""""""""""""""""""""""""
+"These currently don't work on MacOS becaue the alt key is a little funny.
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+"inoremap <M-J> <Esc>:m .+1<CR>==gi
+"inoremap <M-K> <Esc>:m .-2<CR>==gi
+"vnoremap <M-J> :m '>+1<CR>gv=gv
+"vnoremap <M-k> :m '<-2<CR>gv=gv
+
 
 """"""""""""""""""""""""""""""""""""""""""
 "              tmux vim nav remappings 
@@ -154,3 +169,7 @@ autocmd FileType python setlocal shiftwidth=2 tabstop=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:auto_save = 1 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                    hexokinase 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:Hexokinase_highlighters = [ 'virtual' ]
