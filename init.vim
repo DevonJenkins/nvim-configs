@@ -79,9 +79,9 @@ nnoremap <silent> <Esc> :noh<return><Esc>
 """"""""""""""""""""""""""""""""""""""""""
 "                Mappings to move lines like in VS code
 """"""""""""""""""""""""""""""""""""""""""
-"These currently don't work on MacOS becaue the alt key is a little funny.
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
+"""""""""not sure about these yet"""""""""
 "inoremap <M-J> <Esc>:m .+1<CR>==gi
 "inoremap <M-K> <Esc>:m .-2<CR>==gi
 "vnoremap <M-J> :m '>+1<CR>gv=gv
@@ -176,3 +176,4 @@ let g:auto_save = 1
 "                    hexokinase 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:Hexokinase_highlighters = [ 'virtual' ]
+
