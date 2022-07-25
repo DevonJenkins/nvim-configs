@@ -1,7 +1,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "                   init.vim 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+lua require ('djenkins.packer')
+"lua require ('mini.starter').setup({})
+
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
 if empty(glob(data_dir . '/autoload/plug.vim'))
     silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -16,7 +20,7 @@ Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'roman/golden-ratio'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'mhinz/vim-startify', {'branch': 'center'}
+"Plug 'mhinz/vim-startify', {'branch': 'center'}
 Plug 'iamcco/markdown-preview.nvim', 
             \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'preservim/nerdtree'
@@ -36,7 +40,7 @@ call plug#end()            " required
 set termguicolors
 let g:gruvbox_contrast_dark = 'medium'
 set background=dark  
-autocmd vimenter * ++nested colorscheme dracula
+"autocmd vimenter * ++nested colorscheme dracula
 autocmd BufNewFile *.html 0r ~/.vim/skeletons/skeletons/page.html
 autocmd FileType json syntax match Comment +\/\/.\+$+
 syntax on
@@ -73,6 +77,8 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <Return>o o<Esc>
 nnoremap <Return>O O<Esc>
 nnoremap <silent> <Esc> :noh<return><Esc>
+nnoremap ∆ <M-J>  
+nnoremap ˚ <M-K> 
 "set fillchars+=vert:\ 
 
 
@@ -81,20 +87,17 @@ nnoremap <silent> <Esc> :noh<return><Esc>
 """"""""""""""""""""""""""""""""""""""""""
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
-"""""""""not sure about these yet"""""""""
-"inoremap <M-J> <Esc>:m .+1<CR>==gi
-"inoremap <M-K> <Esc>:m .-2<CR>==gi
-"vnoremap <M-J> :m '>+1<CR>gv=gv
-"vnoremap <M-k> :m '<-2<CR>gv=gv
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
 
 
 """"""""""""""""""""""""""""""""""""""""""
 "              tmux vim nav remappings 
 """"""""""""""""""""""""""""""""""""""""""
-"for these to work you must first open up tmux in the terminal then open up
-"vim in tmux 
-"rather than typing the terminal command to open up a terminal, just split 
-"the tmux pane 
+"These remappings only work within tmux. Set tmux to auto-open in your shell
+"config
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -176,4 +179,5 @@ let g:auto_save = 1
 "                    hexokinase 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:Hexokinase_highlighters = [ 'virtual' ]
+
 
