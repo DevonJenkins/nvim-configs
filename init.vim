@@ -78,6 +78,13 @@ nnoremap <Return>O O<Esc>
 nnoremap <silent> <Esc> :noh<return><Esc>
 nnoremap ∆ <M-J>  
 nnoremap ˚ <M-K> 
+
+"So I can move around in insert
+inoremap <C-k> <C-o>gk
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <C-o>gj
+
 set fillchars+=vert:\ 
 
 
