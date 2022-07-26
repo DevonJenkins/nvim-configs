@@ -2,7 +2,6 @@
 "                   init.vim 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 lua require ('djenkins.packer')
-"lua require ('mini.starter').setup({})
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 
@@ -79,12 +78,13 @@ nnoremap <Return>O O<Esc>
 nnoremap <silent> <Esc> :noh<return><Esc>
 nnoremap ∆ <M-J>  
 nnoremap ˚ <M-K> 
-"set fillchars+=vert:\ 
+set fillchars+=vert:\ 
 
 
-""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                Mappings to move lines like in VS code
-""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
 inoremap ∆ <Esc>:m .+1<CR>==gi
@@ -92,10 +92,9 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
-
-""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "              tmux vim nav remappings 
-""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "These remappings only work within tmux. Set tmux to auto-open in your shell
 "config
 
@@ -133,6 +132,7 @@ map <F3> :AutoSaveToggle<CR>
 "                         startify 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 let g:startify_lists = [
         \ { 'header': ['  '],            'type': 'files' },
         \ ]
@@ -156,13 +156,9 @@ let g:startify_custom_header =
             \'/_____________________________________~~____' 
             \]
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            Tabs for different filetypes 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"You should put that in ~/.vim/after/ftplugin/html.vim instead.
-"But as others have pointed out below, it’s much nicer to just add autocmd 
-"FileType html setlocal shiftwidth=2 tabstop=2 to your .vimrc   
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                  Tabs for different filetypes 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
@@ -171,12 +167,12 @@ autocmd FileType ejs setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=2 tabstop=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               autosave
+"                           autosave
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:auto_save = 1 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                    hexokinase 
+"                          hexokinase 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:Hexokinase_highlighters = [ 'virtual' ]
 
