@@ -184,3 +184,31 @@ let g:auto_save = 1
 let g:Hexokinase_highlighters = [ 'virtual' ]
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       Leader remappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=" "
+"Faster clipboard copying/pasting
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+xnoremap <leader>y "+y
+xnoremap <leader>Y "+Y
+
+"Paste from system clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+xnoremap <leader>p "+p
+xnoremap <leader>P "+P
+
+"Git mappings
+nnoremap <leader>ga :Git add .<cr>
+nnoremap <leader>gc :Git commit<cr>
+nnoremap <leader>gd :Git diff<cr>
+nnoremap <leader>gp :Git push<cr>
+nnoremap <leader>gP :Git pull<cr>
+
+"Quit
+nnoremap <leader>q :q
+
+"source vimrc 
+nnoremap <leader>s :so $MYVIMRC
