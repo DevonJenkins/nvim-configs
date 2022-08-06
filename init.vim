@@ -16,6 +16,7 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
+Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'roman/golden-ratio'
 Plug 'christoomey/vim-tmux-navigator'
