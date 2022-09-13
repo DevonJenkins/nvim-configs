@@ -61,4 +61,4 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
   use { 'echasnovski/mini.nvim', branch = 'stable' }
   end)
-
+	

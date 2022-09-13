@@ -17,6 +17,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
 Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'roman/golden-ratio'
 Plug 'christoomey/vim-tmux-navigator'
@@ -45,12 +46,10 @@ autocmd BufNewFile *.html 0r ~/.vim/skeletons/skeletons/page.html
 autocmd FileType json syntax match Comment +\/\/.\+$+
 syntax on
 set nu
-set tabstop=4 
-set softtabstop=0
-set shiftwidth=4 
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
-set ruler 
+set relativenumber 
+set tabstop=2 softtabstop=0 shiftwidth=2 smarttab 
 set smartindent 
+set ruler 
 set noerrorbells 
 set novisualbell
 set visualbell t_vb=
@@ -64,8 +63,15 @@ set signcolumn=yes
 set colorcolumn=80
 set textwidth=80
 set exrc 
-set relativenumber 
-set wrap
+let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+"set nowrap commenting this out becuase i want wrapping back. We'll see if I
+"change my mind again.
+
+lua << EOF
+require("catppuccin").setup()
+EOF
+
+colorscheme catppuccin
 
 """""""""""""""""""""""""""""""""""""""""""""
 "                    remappings
@@ -171,8 +177,10 @@ let g:startify_custom_header =
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType jsx setlocal shiftwidth=2 tabstop=2
 autocmd FileType ejs setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=2 tabstop=2
+autocmd FileType c setlocal shiftwidth=4 tabstop=4
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           autosave
