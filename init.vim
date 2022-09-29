@@ -15,13 +15,9 @@ filetype off                  " required
 call plug#begin('~/.vim/bundle')
 
 Plug 'mattn/emmet-vim'
-Plug 'morhetz/gruvbox'
-Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'roman/golden-ratio'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'mhinz/vim-startify', {'branch': 'center'}
 Plug 'iamcco/markdown-preview.nvim', 
             \ { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'preservim/nerdtree'
@@ -33,15 +29,18 @@ Plug 'mhinz/vim-signify'
 Plug 'alvan/vim-closetag'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'tpope/vim-surround'
-Plug 'dracula/vim'
 Plug 'kshenoy/vim-signature'
+
+Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate'}
 
 call plug#end()            " required
 
-set termguicolors
-let g:gruvbox_contrast_dark = 'medium'
-set background=dark  
-"autocmd vimenter * ++nested colorscheme dracula
+lua require ('djenkins.init')
+
 autocmd BufNewFile *.html 0r ~/.vim/skeletons/skeletons/page.html
 autocmd FileType json syntax match Comment +\/\/.\+$+
 syntax on
@@ -63,10 +62,13 @@ set signcolumn=yes
 set colorcolumn=80
 set textwidth=80
 set exrc 
-let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
-"set nowrap commenting this out becuase i want wrapping back. We'll see if I
-"change my mind again.
 
+"gruvbox configs
+let g:gruvbox_contrast_dark = 'medium'
+set background=dark  
+
+"catppuccin configs 
+let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
 lua << EOF
 require("catppuccin").setup()
 EOF
@@ -86,7 +88,7 @@ nnoremap <silent> <Esc> :noh<return><Esc>
 nnoremap ∆ <M-J>  
 nnoremap ˚ <M-K> 
 
-"So I can move around in insert
+"insert mobility 
 inoremap <C-k> <C-o>gk
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
@@ -120,17 +122,12 @@ nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        Auto Indent
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 filetype indent on
-
 set ai
-
 set si 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Toggles 
@@ -141,34 +138,6 @@ map <F2> :NERDTreeToggle<CR>
 map <F5> :set pastetoggle<CR>
 
 map <F3> :AutoSaveToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                         startify 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-let g:startify_lists = [
-        \ { 'header': ['  '],            'type': 'files' },
-        \ ]
-
-" this is the format for entering ascii art  \' ---put art in here---   ',
-let g:startify_custom_header =
-          \[
-            \'     /^\    /^\ ' ,
-            \'    {  O}  {  O}',
-            \'     \ /    \ /',
-            \'     //     //       _------_',
-            \'    //     //     ./~        ~-_',
-            \'   / ~----~/     /              \ ',
-            \' /         :   ./       _---_    ~-',
-            \'|  \________) :       /~     ~\   |',
-            \'|        /    |      |  :~~\  |   |',
-            \'|       |     |      |  \___-~    |',
-            \'|        \ __/`^\______\.        ./',
-            \' \                     ~-______-~\.',
-            \' .|                                ~-_',
-            \'/_____________________________________~~____' 
-            \]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  Tabs for different filetypes 
