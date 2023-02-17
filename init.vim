@@ -96,6 +96,9 @@ inoremap <C-j> <C-o>gj
 
 set fillchars+=vert:\ 
 
+"this should set enter to my confirm button in COC
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                Mappings to move lines like in VS code
